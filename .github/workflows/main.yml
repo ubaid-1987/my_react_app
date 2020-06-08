@@ -20,15 +20,15 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2     
           
-     -  name: Setup Node.js environment
-        uses: actions/setup-node@v2-beta
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2-beta
     
     - name: GitHub Action for Yarn
       uses: Borales/actions-yarn@v2.3.0
        cmd: install
     
     - name: Creating build
-     run: yarn build
+      run: yarn build
     
    - name:  install surge
      run: sudo npm install --global surge
