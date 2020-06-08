@@ -32,7 +32,7 @@ jobs:
     name: Creating build
     run: yarn build
     
-     name:  install surge
+    name:  install surge
     run: sudo npm install --global surge
     
     name: deploying on surge
