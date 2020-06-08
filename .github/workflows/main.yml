@@ -19,22 +19,22 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2     
-      
-    name: github-actions-nodejs
-    uses: thonatos/github-actions-nodejs@v0.1.1
-       
-    name: GitHub Action for Yarn
-    uses: Borales/actions-yarn@v2.3.0
-    cmd: install
+          
+     -  name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.2
     
-    name: Creating build
-    run: yarn build
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.3.0
+       cmd: install
     
-    name:  install surge
-    run: sudo npm install --global surge
+    - name: Creating build
+     run: yarn build
     
-    name: deploying on surge
-    run: surge ./build http://wrong-thunder.surge.sh/ --token ${{REACT_SURGE_TOKEN}}
+   - name:  install surge
+     run: sudo npm install --global surge
+    
+   - name: deploying on surge
+     run: surge ./build http://wrong-thunder.surge.sh/ --token ${{REACT_SURGE_TOKEN}}
     
     
     
